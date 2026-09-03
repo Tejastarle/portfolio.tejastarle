@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Open portfolio-tejastarle-eta.vercel.app
+Open (http://portfolio-tejastarle-eta.vercel.app)
 
 **It runs with no setup.** Supabase is optional. Without it, the site renders
 from `src/content/fallback.ts`, which is already seeded with your 18 GitHub
@@ -79,7 +79,7 @@ a strong password. Confirm the email.
 npm run dev
 ```
 
-Go to <http://localhost:3000/admin>.
+Go to <http://portfolio-tejastarle-eta.vercel.app/admin>.
 
 ---
 
