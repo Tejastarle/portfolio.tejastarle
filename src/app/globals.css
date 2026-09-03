@@ -1,0 +1,863 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TEJAS TARLE — "MIDNIGHT AURORA"
+   Premium Developer Portfolio Theme
+
+   Palette:
+   - Obsidian Black
+   - Midnight Navy
+   - Electric Blue
+   - Indigo
+   - Violet
+   - Magenta
+   - Jade for availability / success states
+
+   Designed for:
+   - Backend Engineering
+   - Payment Gateway Integrations
+   - Full-Stack Development
+   - Technical Leadership
+   ============================================================ */
+
+
+/* ============================================================
+   THEME
+   ============================================================ */
+
+@theme {
+  /* --- Backgrounds ------------------------------------------- */
+
+  --color-ink: #030711;
+  --color-ink-2: #07101f;
+  --color-ink-3: #0d1830;
+
+  /* --- Primary Accent ---------------------------------------- */
+
+  --color-gold: #5bc0ff;
+  --color-gold-deep: #3578d4;
+
+  /* --- Secondary Accent -------------------------------------- */
+
+  --color-wine: #8b5cf6;
+
+  /* --- Status / Success -------------------------------------- */
+
+  --color-jade: #35d6b0;
+
+  /* --- Typography -------------------------------------------- */
+
+  --color-paper: #f7f8fc;
+  --color-dim: #8992a8;
+
+  /* --- Borders ----------------------------------------------- */
+
+  --color-line: #1a2944;
+
+  /* --- Fonts ------------------------------------------------- */
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+
+  --font-body: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* --- Motion ------------------------------------------------ */
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* ============================================================
+   ROOT
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  --spine-w: 72px;
+
+  /* Main signature gradient */
+
+  --grad-signature: linear-gradient(
+    105deg,
+    #35a7ff 0%,
+    #5b8cff 28%,
+    #8b5cf6 58%,
+    #b45cff 78%,
+    #d946ef 100%
+  );
+
+  /* Aurora background */
+
+  --grad-aurora:
+    radial-gradient(
+      circle at 75% 18%,
+      rgb(91 92 246 / 0.15),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 40% 55%,
+      rgb(37 143 255 / 0.08),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 92% 78%,
+      rgb(217 70 239 / 0.07),
+      transparent 28%
+    );
+}
+
+
+/* ============================================================
+   GLOBAL RESET
+   ============================================================ */
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+
+  background:
+    var(--grad-aurora),
+    var(--color-ink);
+
+  color: var(--color-paper);
+
+  font-family: var(--font-body);
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ============================================================
+   TEXT SELECTION
+   ============================================================ */
+
+::selection {
+  background: rgb(91 140 255 / 0.85);
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.display {
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  letter-spacing: -0.055em;
+
+  line-height: 0.88;
+}
+
+
+.eyebrow {
+  font-family: var(--font-mono);
+
+  font-size: 0.6875rem;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: var(--color-dim);
+}
+
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+
+/* ============================================================
+   SIGNATURE GRADIENT TEXT
+   ============================================================ */
+
+.grad-text {
+  background: var(--grad-signature);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* Gradient sliced across individual word/characters */
+
+.grad-slice {
+  background-image: var(--grad-signature);
+
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* ============================================================
+   PREMIUM SURFACES
+   ============================================================ */
+
+.gild {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgb(9 18 35 / 0.96),
+      rgb(4 10 21 / 0.96)
+    )
+    padding-box,
+
+    var(--grad-signature) border-box;
+
+  border: 1px solid transparent;
+
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.035),
+    0 20px 60px rgb(0 0 0 / 0.25);
+}
+
+
+/* ============================================================
+   PREMIUM GLOW
+   ============================================================ */
+
+.glow-gold {
+  box-shadow:
+    0 0 0 1px rgb(91 140 255 / 0.18),
+    0 0 35px rgb(53 167 255 / 0.10),
+    0 18px 60px -18px rgb(139 92 246 / 0.42);
+}
+
+
+/* ============================================================
+   TEXT GLOW
+   ============================================================ */
+
+.text-glow {
+  text-shadow:
+    0 0 28px rgb(91 140 255 / 0.25),
+    0 0 55px rgb(139 92 246 / 0.14);
+}
+
+
+/* ============================================================
+   PORTRAIT FRAME
+   ============================================================ */
+
+.portrait-frame {
+  position: relative;
+
+  border-radius: 1.25rem;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--color-ink-2),
+      var(--color-ink)
+    )
+    padding-box,
+
+    var(--grad-signature) border-box;
+
+  border: 1px solid transparent;
+
+  box-shadow:
+    0 0 0 1px rgb(91 140 255 / 0.06),
+    0 30px 80px rgb(0 0 0 / 0.45),
+    0 0 80px rgb(76 29 149 / 0.14);
+}
+
+
+/* Cinematic portrait overlay */
+
+.portrait-frame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgb(3 7 17 / 0.82) 0%,
+      rgb(3 7 17 / 0.35) 30%,
+      rgb(3 7 17 / 0.08) 50%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* Portrait ambient glow */
+
+.portrait-frame::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  top: -120px;
+  right: -120px;
+
+  background:
+    rgb(91 92 246 / 0.20);
+
+  filter: blur(90px);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* ============================================================
+   PORTRAIT HALO ANIMATION
+   ============================================================ */
+
+@keyframes halo {
+  0%,
+  100% {
+    transform:
+      scale(1)
+      rotate(0deg);
+
+    opacity: 0.45;
+  }
+
+  50% {
+    transform:
+      scale(1.08)
+      rotate(4deg);
+
+    opacity: 0.75;
+  }
+}
+
+
+.portrait-halo {
+  animation:
+    halo 10s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   AURORA EFFECT
+   ============================================================ */
+
+.aurora {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 70% 30%,
+      rgb(59 130 246 / 0.13),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 42% 70%,
+      rgb(139 92 246 / 0.10),
+      transparent 32%
+    ),
+
+    radial-gradient(
+      circle at 90% 75%,
+      rgb(217 70 239 / 0.08),
+      transparent 25%
+    );
+}
+
+
+/* ============================================================
+   GRID BACKGROUND
+   ============================================================ */
+
+.grid-bg {
+  background-image:
+    linear-gradient(
+      rgb(91 140 255 / 0.035) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgb(91 140 255 / 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 64px 64px;
+}
+
+
+/* ============================================================
+   BLUE GLOW
+   ============================================================ */
+
+.glow-blue {
+  box-shadow:
+    0 0 0 1px rgb(53 167 255 / 0.16),
+    0 0 35px rgb(53 167 255 / 0.12),
+    0 20px 70px rgb(53 167 255 / 0.12);
+}
+
+
+/* ============================================================
+   VIOLET GLOW
+   ============================================================ */
+
+.glow-violet {
+  box-shadow:
+    0 0 0 1px rgb(139 92 246 / 0.18),
+    0 0 40px rgb(139 92 246 / 0.14),
+    0 25px 80px rgb(139 92 246 / 0.12);
+}
+
+
+/* ============================================================
+   PRIMARY BUTTON
+   ============================================================ */
+
+.btn-primary {
+  position: relative;
+
+  background: var(--grad-signature);
+
+  color: #ffffff;
+
+  border: 0;
+
+  box-shadow:
+    0 8px 30px rgb(59 130 246 / 0.22),
+    0 0 25px rgb(139 92 246 / 0.12);
+
+  transition:
+    transform 250ms var(--ease-out-expo),
+    box-shadow 250ms var(--ease-out-expo);
+}
+
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 40px rgb(59 130 246 / 0.32),
+    0 0 35px rgb(139 92 246 / 0.22);
+}
+
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   SECONDARY BUTTON
+   ============================================================ */
+
+.btn-secondary {
+  background:
+    rgb(9 16 31 / 0.72);
+
+  border:
+    1px solid var(--color-line);
+
+  color:
+    var(--color-paper);
+
+  transition:
+    border-color 250ms ease,
+    background 250ms ease,
+    transform 250ms ease;
+}
+
+
+.btn-secondary:hover {
+  background:
+    rgb(16 27 50 / 0.85);
+
+  border-color:
+    rgb(91 140 255 / 0.55);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* ============================================================
+   LIVE / AVAILABLE STATUS
+   ============================================================ */
+
+.status-live {
+  color: var(--color-jade);
+
+  text-shadow:
+    0 0 12px rgb(53 214 176 / 0.45);
+}
+
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 999px;
+
+  background:
+    var(--color-jade);
+
+  box-shadow:
+    0 0 0 4px rgb(53 214 176 / 0.08),
+    0 0 16px rgb(53 214 176 / 0.70);
+}
+
+
+/* ============================================================
+   TERMINAL
+   ============================================================ */
+
+.terminal {
+  background:
+    linear-gradient(
+      145deg,
+      rgb(7 14 28 / 0.98),
+      rgb(4 9 18 / 0.98)
+    );
+
+  border:
+    1px solid var(--color-line);
+
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.035),
+    0 25px 70px rgb(0 0 0 / 0.35);
+}
+
+
+.terminal-line {
+  font-family: var(--font-mono);
+
+  font-size: 0.72rem;
+
+  color: #9da9c2;
+}
+
+
+.terminal-success {
+  color: var(--color-jade);
+}
+
+
+.terminal-accent {
+  color: var(--color-blue-bright);
+}
+
+
+.terminal-purple {
+  color: var(--color-purple);
+}
+
+
+/* ============================================================
+   PREMIUM CARDS
+   ============================================================ */
+
+.premium-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgb(11 20 38 / 0.90),
+      rgb(5 11 22 / 0.90)
+    );
+
+  border:
+    1px solid var(--color-line);
+
+  transition:
+    transform 300ms var(--ease-out-expo),
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+
+.premium-card:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgb(91 140 255 / 0.35);
+
+  box-shadow:
+    0 20px 60px rgb(0 0 0 / 0.30),
+    0 0 40px rgb(59 130 246 / 0.08);
+}
+
+
+/* ============================================================
+   GLOWING DIVIDER
+   ============================================================ */
+
+.divider-glow {
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgb(53 167 255 / 0.50),
+      rgb(139 92 246 / 0.60),
+      transparent
+    );
+}
+
+
+/* ============================================================
+   GRAIN / FILM TEXTURE
+   ============================================================ */
+
+.grain {
+  position: relative;
+}
+
+
+.grain::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -200%;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+
+  opacity:
+    0.035;
+
+  pointer-events:
+    none;
+
+  animation:
+    grain 8s steps(6) infinite;
+}
+
+
+@keyframes grain {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  16% {
+    transform:
+      translate(-2%, -3%);
+  }
+
+  33% {
+    transform:
+      translate(-4%, 2%);
+  }
+
+  50% {
+    transform:
+      translate(2%, -4%);
+  }
+
+  66% {
+    transform:
+      translate(-1%, 3%);
+  }
+
+  83% {
+    transform:
+      translate(3%, 1%);
+  }
+}
+
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+
+@keyframes marquee {
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%);
+  }
+}
+
+
+.marquee-track {
+  animation:
+    marquee 34s linear infinite;
+
+  will-change:
+    transform;
+}
+
+
+/* ============================================================
+   CARET
+   ============================================================ */
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity:
+      1;
+  }
+
+  50%,
+  100% {
+    opacity:
+      0;
+  }
+}
+
+
+.caret {
+  animation:
+    blink 1s steps(1) infinite;
+}
+
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+
+:focus-visible {
+  outline:
+    2px solid var(--color-gold);
+
+  outline-offset:
+    3px;
+
+  border-radius:
+    3px;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width:
+    10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background:
+    var(--color-ink);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background:
+    var(--color-ink-3);
+
+  border-radius:
+    999px;
+
+  border:
+    3px solid var(--color-ink);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    var(--color-gold-deep);
+}
+
+
+/* ============================================================
+   RESPONSIVE / MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --spine-w: 0px;
+  }
+
+  .display {
+    letter-spacing:
+      -0.045em;
+  }
+
+  .eyebrow {
+    font-size:
+      0.625rem;
+
+    letter-spacing:
+      0.16em;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior:
+      auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+  .grain::after {
+    animation:
+      none;
+  }
+
+  video {
+    display:
+      none;
+  }
+}
